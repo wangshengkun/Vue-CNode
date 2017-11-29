@@ -9,7 +9,7 @@
 		title="用Vue构造的简易CNode社区" 
 		:visible.sync="showDialog" center>
 			<h2>作者：<a :href="myGithub">{{author}}</a></h2>
-			<h2>源码：<a :href="myCode">{{code}}</a></h2>
+			<h2>源码：<a :href="sourceCode">{{code}}</a></h2>
 			<span id="des">
 				<strong>描述：</strong>
 				依据<a :href="inspiration" id="demo">例子</a>来仿写的一个简易CNode社区，参考了其源码，并在此基础上添加了一些新的技术，适合Vue新手学习。
@@ -33,7 +33,7 @@
 				author:'王圣坤',
 				code:'案例代码',
 				myGithub:'https://github.com/wangshengkun',
-				myCode:'https://github.com/wangshengkun',
+				sourceCode:'https://github.com/wangshengkun/Vue-CNode',
 				inspiration:'https://github.com/shuiRong/VueCnodeJS',
 				items:[
 				{message:'Vue.js'},
