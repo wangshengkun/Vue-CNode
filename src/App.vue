@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <cnode-header></cnode-header>
+<!--
     <img src="./assets/logo.png">
     <router-view/>
+-->
+    <router-view name="main"></router-view>
   </div>
 </template>
 
