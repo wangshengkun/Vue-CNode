@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <cnode-header></cnode-header>
-<!--
-    <img src="./assets/logo.png">
-    <router-view/>
--->
-    <router-view name="main"></router-view>
+    <div id="wrap">
+      <router-view name="main"></router-view>
+    </div>
   </div>
 </template>
 
@@ -19,13 +17,13 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+#app{
+  margin-top: 5rem;
+  #wrap{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
 </style>

@@ -1,6 +1,8 @@
 <template>
 	<header class="header">
+		<router-link to="/">
 			<img src="../assets/logo.svg" alt="cnode logo">
+		</router-link>
 		<el-button @click="showDialog = true" 
 		type="text" id="button">
 			关于
@@ -57,46 +59,47 @@
 header{
 	@include absolute-position;
     background: #324057;
-    height: 3.6rem;
+    height: 4rem;
     width: 100%;
     img{
 		@include absolute-position;
 		width: 10em;
-		height: 3.6em;
+		height: 4em;
 		margin-left:10rem;
     }
     a{
-    	text-decoration:none;
+    	text-decoration: none;
+    	color: #409EFF;
     }
-}
-header > #button{
-	float:right;
-	font-size:25px;
-	font-weight:bold;
-	color:#fff;
-	letter-spacing:2px;
-	margin-right:10rem;
-	text-align:center;
-}
-header > #dialog{
-	$font-size:20px;
-	#des, #skill{
-		font-size:$font-size;
+    >#button{
+		float: right;
+		font-size: 2rem;
+		font-weight: bold;
+		color: #fff;
+		letter-spacing: 2px;
+		margin-right: 10rem;
+		padding: 1rem 0;
 	}
-	#demo{
-		font-style:italic;
-	}
-	#skill{
-		display:inline-block;
-		font-weight:bold;
-		margin:1rem 0rem;
-	}
-	ul{
-		margin:0;
-		padding:0;
-		li{
-			font-size:18px;
-			margin-left:2rem;
+	>#dialog{
+		$font-size: 20px;
+		#des, #skill{
+			font-size: $font-size;
+		}
+		#demo{
+			font-style: italic;
+		}
+		#skill{
+			display: inline-block;
+			font-weight: bold;
+			margin: 1rem 0rem;
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+			li{
+				font-size: 18px;
+				margin-left: 2rem;
+			}
 		}
 	}
 }
