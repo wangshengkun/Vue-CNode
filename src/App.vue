@@ -18,12 +18,22 @@ export default {
 </script>
 
 <style lang="scss">
-#app{
-  margin-top: 5rem;
-  #wrap{
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  @mixin reset{
+    margin: 0;
+    padding: 0;
   }
-}
+  html{
+    @include reset;
+    body{
+      @include reset;
+    }
+    #app{
+      margin-top: 5rem;
+      #wrap{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  }
 </style>

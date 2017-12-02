@@ -1,6 +1,6 @@
 <template>
-	<main>
-		<div v-for="part of content">
+	<main id="one">
+		<div v-for="part of content" :key="part.id">
 			<router-link :to="{name:'UserRoute',params:{name:part.author.loginname}}">
 				<img :src="part.author.avatar_url" :title="part.author.loginname">
 			</router-link>
@@ -47,15 +47,12 @@
 		}
 	}
 </script>
-<style lang="scss">
-	main{
-		display: flex;
-		flex-direction: column;
+<style lang="scss" scoped>
+	#one{
 		width: 70%;
-		background: #F9FAFC;
-		border: 1px solid #ddd;
-		font-size: 20px;
-		padding: 2rem;
+		background-color: #F9FAFC;
+		padding: 1rem;
+		border-radius: 0.3rem;
 		a{
 			text-decoration: none;
 		}
