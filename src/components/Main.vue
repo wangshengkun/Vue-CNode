@@ -1,5 +1,5 @@
 <template>
-	<main id="one">
+	<main id="one" v-loading.lock="loading">
 		<div v-for="part of content" :key="part.id">
 			<router-link :to="{name:'UserRoute',params:{name:part.author.loginname}}">
 				<img :src="part.author.avatar_url" :title="part.author.loginname">
@@ -22,6 +22,7 @@
 		data(){
 			return {
 				content:[],
+				loading: true
 			}
 		},
 		methods:{
@@ -40,6 +41,13 @@
 				}).catch((err)=>{
 					console.log(err);
 				})
+			}
+		},
+		watch:{
+			content(val){
+				if(val){
+					this.loading = false;
+				}
 			}
 		},
 		created(){

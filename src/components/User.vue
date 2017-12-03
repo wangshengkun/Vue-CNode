@@ -1,24 +1,22 @@
 <template>
 	<div id="main">
-		<div id="profile">
+		<div id="profile" v-loading.lock="loading">
 			<div id="message">
 				<img :src="userInfo.avatar_url" :title="userInfo.loginname">
 				<span>{{userInfo.loginname}}</span>
 			</div>
 			<ul id="about">
 				<li>
-					<i nama="score" scale="4"></i>
 					<span>积分：</span>
 					{{userInfo.score}}
 				</li>
 				<li>
-					<i name="github" scale="4"></i>
 					<span>Github：</span>
 					https://github.com/{{userInfo.githubUsername}}
 				</li>
 			</ul>			
 		</div>
-		<div id="recentReplies">
+		<div id="recentReplies" v-loading.lock="loading">
 				<h3>最近参与的话题</h3>
 				<template v-for="(item,index) of userInfo.recent_replies">
 					<div v-if="index < 4" :key="index">
@@ -30,18 +28,18 @@
 						</router-link>
 					</div>
 				</template>
-			</div>
-			<div id="recentTopics">
-				<h3>最近创建的话题</h3>
-				<template v-for="(item,index) of userInfo.recent_topics">
-					<div v-if="index < 4 && item" :key="index">
-						<img :src="item.author.avatar_url" :title="item.author.loginname">
-						<router-link :to="{name:'ArticleRoute',params:{id:item.id}}">
-							<h2>{{item.title}}</h2>
-						</router-link>
-					</div>
-				</template>
-			</div>
+		</div>
+		<div id="recentTopics" v-loading.lock="loading">
+			<h3>最近创建的话题</h3>
+			<template v-for="(item,index) of userInfo.recent_topics">
+				<div v-if="index < 4 && item" :key="index">
+					<img :src="item.author.avatar_url" :title="item.author.loginname">
+					<router-link :to="{name:'ArticleRoute',params:{id:item.id}}">
+						<h2>{{item.title}}</h2>
+					</router-link>
+				</div>
+			</template>
+		</div>
 	</div>
 </template>
 <script>
@@ -49,6 +47,7 @@
 		data(){
 			return{
 				userInfo:{},
+				loading: true
 			}
 		},
 		created(){
@@ -58,7 +57,7 @@
 			}).then((res)=>{
 				this.userInfo = res.data.data;
 			}).catch((err)=>{
-				console.log('User.vue',err);
+				console.log(err);
 			})
 		},
 		beforeRouteUpdate(to, from, next){
@@ -68,9 +67,16 @@
 			}).then((res)=>{
 				this.userInfo = res.data.data;
 			}).catch((err)=>{
-				console.log('User.vue',err);
+				console.log(err);
 			});
 			next();
+		},
+		watch:{
+			userInfo(val){
+				if(val){
+					this.loading = false;
+				}
+			}
 		}
 	}
 </script>
