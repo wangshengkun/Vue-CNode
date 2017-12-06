@@ -1,6 +1,6 @@
 <template>
 	<main id="one" v-loading.lock="loading">
-		<div v-for="part of content" :key="part.id">
+		<div v-for="part of content" :key="part.id" class="content">
 			<router-link :to="{name:'UserRoute',params:{name:part.author.loginname}}">
 				<img :src="part.author.avatar_url" :title="part.author.loginname">
 			</router-link>
@@ -32,7 +32,6 @@
 					method:'get',
 					params:{
 						page:1,
-						tab:'job',
 						limit:10,
 						mdrender:'false'
 					}
@@ -57,20 +56,20 @@
 </script>
 <style lang="scss" scoped>
 	#one{
-		width: 70%;
+		width: 100%;
+		@media screen and (min-width: 420px){
+			width: 70%;
+		}
 		background-color: #F9FAFC;
 		padding: 1rem;
 		border-radius: 0.3rem;
-		a{
-			text-decoration: none;
-		}
-		>div{
+		>div[class="content"]{
 			display: flex;
 			justify-content: flex-start;
 			align-items: center;
 			margin: 0.5rem 0;
-			border-bottom: 2px solid #C0CCDA;
-			padding-bottom: 1rem;
+			border-bottom: 0.125rem solid #C0CCDA;
+			padding: 1rem 0;
 			img{
 				height: 5rem;
 				width: 5rem;
@@ -79,16 +78,15 @@
 			>div[class="report"]{
 				display: flex;
 				flex-direction: column;
-				align-items: flex-start;
 				justify-content: flex-start;
-				width: 100%;
 				>a{
 					color: #000;
-					font-size: 20px;
+					font-size: 1.25rem;
 					font-weight: bold;
+					text-decoration: none;
 				}
 				>div[class="detail"]{
-					font-size: 16px;
+					font-size: 1rem;
 					margin-top: 1rem;
 					color: #8492A6;
 					span{

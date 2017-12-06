@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <cnode-header></cnode-header>
-    <div id="wrap">
-      <router-view name="main"></router-view>
-    </div>
+    <router-view name="main"></router-view>
   </div>
 </template>
 
@@ -18,22 +16,22 @@ export default {
 </script>
 
 <style lang="scss">
-  @mixin reset{
-    margin: 0;
-    padding: 0;
-  }
-  html{
-    @include reset;
-    body{
-      @include reset;
+    @mixin reset{
+      margin: 0;
+      padding: 0;
     }
-    #app{
-      margin-top: 5rem;
-      #wrap{
-        display: flex;
-        justify-content: center;
-        width: 100%;
+    html{
+      @include reset;
+      body{
+        @include reset;
+        #app{
+          display: flex;
+          justify-content: center;
+          margin-top: 4rem;
+          @media screen and (min-width: 420px){
+            margin-top: 5rem;
+          }
+        }
       }
     }
-  }
 </style>
