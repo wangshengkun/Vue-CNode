@@ -52,6 +52,9 @@
 		},
 		created(){
 			this.axios({
+				// 注意！此处并非单引号或双引号，使用此两种符号会有跨域错误，
+				// 该符号位于键盘中Tab键上方
+				// 至于为什么使用该符号目前我也不懂，希望有理解的朋友可以指点下
 				url:`https://cnodejs.org/api/v1${this.$route.path}`,
 				method:'get',
 			}).then((res)=>{
@@ -83,7 +86,10 @@
 
 <style lang="scss" scoped>
 	#main{
-		width: 70%;
+		width: 80%;
+		@media screen and (min-width: 420px){
+			width: 70%;
+		}
 		a{
 			text-decoration: none;
 		}
@@ -97,7 +103,7 @@
 					width: 8rem;
 				}
 				span{
-					font-size: 25px;
+					font-size: 1.5rem;
 					color: #000;
 					font-weight: bold;
 					margin-left: 1rem;
@@ -108,7 +114,7 @@
 				padding: 0;
 				li{
 					list-style-type: none;
-					font-size: 20px;
+					font-size: 1.25rem;
 				}
 			}
 		}
@@ -140,7 +146,7 @@
 				display: flex;
 				align-items:center;
 				padding: 1rem 0;
-				border-bottom: 2px solid #C0CCDA;
+				border-bottom: 0.125rem solid #C0CCDA;
 			}
 			h2{
 				margin-left: 1rem;

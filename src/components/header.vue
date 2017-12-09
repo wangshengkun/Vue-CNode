@@ -59,13 +59,21 @@
 header{
 	@include absolute-position;
     background: #324057;
-    height: 4rem;
+    @media screen and (min-width:420px){
+    	height: 4rem;
+    }
+    height: 3rem;
     width: 100%;
     img{
 		@include absolute-position;
-		width: 10em;
-		height: 4em;
-		margin-left:10rem;
+			width: 8rem;
+			height: 3rem;
+			margin-left: 1rem;
+		@media screen and (min-width:420px){
+			width: 10em;
+			height: 4em;
+			margin-left:10rem;
+		}
     }
     a{
     	text-decoration: none;
@@ -73,15 +81,21 @@ header{
     }
     >#button{
 		float: right;
-		font-size: 2rem;
+		@media screen and (min-width:420px){
+			font-size: 2rem;
+		}
+		font-size: 1.5rem;
 		font-weight: bold;
 		color: #fff;
-		letter-spacing: 2px;
-		margin-right: 10rem;
+		letter-spacing: 0.125rem;
+		margin-right: 1rem;
+		@media screen and (min-width: 420px){
+			margin-right: 10rem;
+		}
 		padding: 1rem 0;
 	}
 	>#dialog{
-		$font-size: 20px;
+		$font-size: 1.25rem;
 		#des, #skill{
 			font-size: $font-size;
 		}
@@ -97,11 +111,10 @@ header{
 			margin: 0;
 			padding: 0;
 			li{
-				font-size: 18px;
+				font-size: 1.125rem;
 				margin-left: 2rem;
 			}
 		}
 	}
 }
-
 </style>
